@@ -1,0 +1,89 @@
+<div class="row px-xl-5">
+    <div class="col-lg-5 pb-5">
+      <ngb-carousel *ngIf="images" class="border" [interval]="4000" [pauseOnHover]="true">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="img-fluid" [src]="images[0]" alt="First image">
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img class="img-fluid" [src]="images[1]" alt="Second image">
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    <!--<div id="product-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner border">
+          <div class="carousel-item active">
+              <img class="img-fluid" src="{{product.productImageAddress}}" alt="Image">
+          </div>
+          <div class="carousel-item">
+              <img class="img-fluid" src="{{product.productImageAddress}}" alt="Image">
+          </div>
+        </div>
+        <a class="carousel-control-prev"  data-slide="prev">
+            <i class="fa fa-2x fa-angle-left text-dark"></i>
+        </a>
+        <a class="carousel-control-next" data-slide="next">
+            <i class="fa fa-2x fa-angle-right text-dark"></i>
+        </a>
+      </div>-->
+      
+    </div> 
+    
+    <div class="col-lg-7 pb-5">
+        <h3 class="font-weight-semi-bold">{{product.productName}}</h3>
+        <div class="d-flex mb-3">
+            <div class="text-primary mr-2">
+                <small class="fas fa-star"></small>
+                <small class="fas fa-star"></small>
+                <small class="fas fa-star"></small>
+                <small class="fas fa-star-half-alt"></small>
+                <small class="far fa-star"></small>
+            </div>
+        </div>
+        <h3 class="font-weight-semi-bold mb-4">{{product.productPrice|currency:"INR":"symbol"}}</h3>
+        <p class="mb-4">{{product.productDescription}}</p>
+        
+        <br>
+        <!-- <div class="d-flex align-items-center mb-4 pt-2">
+            <button class="btn btn-primary px-3">
+              <i class="fa fa-shopping-cart mr-1">
+            </i>Place Order
+            </button>
+        </div> -->
+  <div class="align-items-center text-monospace">
+    Select EMI Period :
+    <!-- <p>{{ selectedEmiType }}</p> -->
+      <select type="button" class="btn btn-light me-2"  [(ngModel)]="selectedEmiType" name="Select" 
+      (ngModelChange)="onChange($event)">
+        <option default disabled>Select EMI type</option>
+        <option>3 months</option>
+        <option>6 months</option>
+        <option>9 months</option>
+        <option>12 months</option>
+      </select>
+      
+      <!-- <p>Months - {{numberOfMonths}}</p> -->
+ 
+
+  </div>
+  
+  <div class="col">
+    
+    </div>
+
+  <br />
+  <div class="align-items-center text-lead">
+    EMI Value 
+    <div class="font-weight-bold h4">₹ {{startingEmiPrice}} per month </div>
+  </div> 
+  <br>
+  <div class="d-flex align-items-center mb-4 pt-2">
+            <button class="btn btn-info px-3">
+              <i class="fa fa-credit-card mr-1">
+            </i> Buy now
+            </button>
+        </div>
+</div>
+</div>

@@ -35,4 +35,6 @@ export class UserDetailsService {
     return this.http.put<any>(
       "http://localhost:50124/api/logindetails/" + e.userEmail, e, {observe:'response'});
   }
+
+
 }
