@@ -1,0 +1,14 @@
+<p>admin-login works!</p>
+<form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <div>
+        <label for="userEmail"> Email </label>
+        <input type="text" name="UserEmail" ngModel placeholder="Enter email" class="form-control">
+    </div>
+    <div>
+        <label for="password"> Password </label>
+        <input type="text" name="password" ngModel placeholder="Enter password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary"> Submit </button>
+</form>
+{{myform.value|json}}
+<br>

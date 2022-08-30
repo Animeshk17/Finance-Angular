@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> User login Details </title>
+    </head>
+
+    <body>
+        <p>User Details list </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> UserId </th>
+                    <th> Name </th> 
+                    <th> Phone </th>
+                    <th> Address </th> 
+                    <th> Account Number </th>
+                    <th> IFSC Code </th>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let u of userList">
+                <td> {{u.userId}} </td>
+                <td> {{u.name}} </td>
+                <td> {{u.phone}} </td>
+                <td> {{u.address}} </td>
+                <td> {{u.account_number}} </td>
+                <td> {{u.ifsc_code}} </td>
+                <!-- <td> <a routerLink="/details/{{c.id}}" class="btn btn-warning"> Details </a> </td>
+                <td> <a routerLink="/edit/{{c.id}}" class="btn btn-warning"> Edit </a> </td>
+                <td> <a (click)="delete(c.id)" href="javascript:void()"> Delete </a> </td> -->
+            </tr>
+        </table>
+
+        <style>
+            .table{
+                border : 2px solid black;
+            }
+        </style>
+
+        <script src="../../assets/js/userLoginDetailsListScript.js"></script>
+    </body>
+</html>
