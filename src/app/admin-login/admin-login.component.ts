@@ -19,23 +19,11 @@ export class AdminLoginComponent implements OnInit {
   onSubmit(userLoginForm:any) {
 
     this. u = userLoginForm.value;
-    this.u.loginId = 500;
-    this.u.userId = 500;
-    this._service.LogUserIn(this.u).subscribe(
-      (res) =>
-      {
-        if(res.status == 200){
-          alert("Logged in Successfully!");
-          console.log(res);
-        }
-      },(err) => {
-        console.log(err);
-        alert("There was a problem logging you In :( ");
-        this.router.navigateByUrl('userLoginDetailsList');
-      });
-    this.router.navigateByUrl("UserLoginDetailsList")
-    .then(() => {
-      window.location.reload();
-    });
+    if(this.u.password == "adminPassword"){
+      alert("Logged in as Admin.");
+      this.router.navigateByUrl('userLoginDetailsList');
+    }else {
+      alert("Invalid Admin Credentials :( ")
+    }
   }
 }
