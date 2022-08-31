@@ -9,4 +9,5 @@ export interface UserLoginDetails{
     account_number : string;
     ifsc_code : string;
     is_verified : boolean;
+    cardType : string;
 }

@@ -13,7 +13,7 @@ export class AddUserComponent implements OnInit {
 
   u: UserLoginDetails = {userId : 1, name : "Animesh", phone : "9934131119", address : "Bihar",
   userEmail: "animeshk@gmail.com", password:"pswd@123", confirmPassword:"pswd@123", account_number:"11112222334",
-  ifsc_code: "SBIN0008880", is_verified : false};
+  ifsc_code: "SBIN0008880", is_verified : false, cardType: ""};
    
   constructor(private _service : UserDetailsService, private router : Router) { }
 
