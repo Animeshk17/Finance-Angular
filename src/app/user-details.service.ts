@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/comm
 import { catchError, Observable, throwError } from 'rxjs';
 import { LoginData } from 'src/Models/LoginData';
 import { Card } from 'src/Models/Card';
+import { User } from 'src/Models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,13 @@ export class UserDetailsService {
 
   buyFromCard(e: Card) : Observable<any> {
     return this.http.put<any>(this.url + "card/" + e.userId, e, {observe: 'response'});
+  }
+
+  getOrders(){
+    return this.http.get<any>(this.url + "order/");
+  }
+
+  verifyUserById(e : User){
+    return this.http.put<any>(this.url + "user/" + e.userId, e);
   }
 }

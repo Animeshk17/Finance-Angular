@@ -13,6 +13,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ProductDetailPageComponent } from './product-detail-page/product-detail-page.component';
+import { OrdersPageComponent } from './orders-page/orders-page.component';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ProductDetailPageComponent } from './product-detail-page/product-detail
     AdminLoginComponent,
     ForgotPasswordComponent,
     HomePageComponent,
-    ProductDetailPageComponent
+    ProductDetailPageComponent,
+    OrdersPageComponent,
+    OtpVerificationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/Models/User';
 import { UserLoginDetails } from 'src/Models/UserLoginDetails';
 import { UserDetailsService } from '../user-details.service';
 
@@ -23,5 +24,13 @@ export class UserLoginListComponent implements OnInit {
 
   verifyUserButtonPressed(){
     alert("Verification initiated");
+  }
+
+  verifyUser(u : User){
+    u.is_verified = true;
+    console.log(u);
+    this._service.verifyUserById(u).subscribe(data => {
+      console.log(data);
+    });
   }
 }

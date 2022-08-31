@@ -18,11 +18,12 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(userLoginForm:any) {
 
-    this. u = userLoginForm.value;
+    this.u = userLoginForm.value;
     var a = userLoginForm.value;
     var b = JSON.stringify(a);
     var loggedEmail = b.slice(b.indexOf(":")+2,b.indexOf("@"))+"@gmail.com";
     localStorage.setItem('loggedUserEmail',loggedEmail);
+    localStorage.setItem('OTP',"123456");
     var c = localStorage.getItem('loggedUserEmail');
     console.log(c);
     this.u.loginId = 500;

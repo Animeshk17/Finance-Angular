@@ -1,0 +1,12 @@
+<form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <div>
+        <label for="PhoneNumber"> Phone Number </label>
+        <input type="text" name="phoneNumber" ngModel placeholder="Enter Phone Number" class="form-control">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="getOTP()"> Get OTP </button>
+    <div>
+        <label for="OTP"> OTP </label>
+        <input type="text" name="otp" ngModel placeholder="Enter OTP" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary"> Verify </button>
+</form>

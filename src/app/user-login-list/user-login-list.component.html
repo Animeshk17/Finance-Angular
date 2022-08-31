@@ -1,4 +1,3 @@
-<p>user-login-list works!</p>
 <table class="table">
     <thead>
         <tr>
@@ -23,9 +22,9 @@
         <td> {{u.address}} </td>
         <td> {{u.account_number}} </td>
         <td> {{u.ifsc_code}} </td>
-        <!-- <td> {{u.is_verified}} </td> -->
+        <td> {{u.is_verified}} </td>
         <td> 
-            <button type="submit" class="btn" > Verify User </button>
+            <button type="submit" class="btn" (click)="verifyUser(u)" > Verify User </button>
         </td>
         <!-- <td> <a routerLink="/details/{{c.id}}" class="btn btn-warning"> Details </a> </td>
         <td> <a routerLink="/edit/{{c.id}}" class="btn btn-warning"> Edit </a> </td>

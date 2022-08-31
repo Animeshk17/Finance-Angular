@@ -4,6 +4,7 @@ import { Card } from 'src/Models/Card';
 import { LoginData } from 'src/Models/LoginData';
 import { Order } from 'src/Models/Order';
 import { Product } from 'src/Models/Product';
+import { Transaction } from 'src/Models/Transaction';
 import { ProductService } from '../services/product.service';
 import { UserDetailsService } from '../user-details.service';
 
@@ -28,7 +29,7 @@ export class ProductDetailPageComponent implements OnInit {
   //ld : LoginData = {loginId: 300, userId: 300, userEmail: "", password: "", confirmPassword: ""};
   orderNumber : number = 6;
   orderObject : Order = { orderId: this.orderNumber, productId: 100, userId: 300, orderDate: new Date(), orderAmount: 99}
-
+  trnObject : Transaction = {  transactionId : 0, orderId: this.orderNumber, productId: 100, userId: 300, transactionDate: new Date(), transactionAmount: 99}
   constructor(private _service: ProductService, private _userService: UserDetailsService, private route: Router, private activateroute: ActivatedRoute) {
   }
 
@@ -71,8 +72,16 @@ export class ProductDetailPageComponent implements OnInit {
       console.log(this.orderObject);
       this._service.createOrder(this.orderObject).subscribe(data => {
         console.log(data);
-        this.orderNumber = this.orderNumber+1;
+        this.trnObject.orderId = data.orderId;
+        this.trnObject.userId = data.userId;
+        this.trnObject.productId = 1;
+        this.trnObject.transactionAmount = this.startingEmiPrice;
+        this._service.createTransaction(this.trnObject).subscribe(data => {
+          console.log(data);
+        })
       });
+
+      
     });
 
     

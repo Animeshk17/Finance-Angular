@@ -26,6 +26,9 @@ export class ProductService {
   createOrder(e : any):Observable<any> {
     return this.http.post<any>("http://localhost:50124/api/order/", e);
   }
-  
+
+  createTransaction(e : any):Observable<any> {
+    return this.http.post<any>("http://localhost:50124/api/transaction/", e);
+  }
   
 }

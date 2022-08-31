@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th> OrderId </th>
+            <th> ProductId </th> 
+            <th> UserId </th>
+            <th> OrderDate </th>
+            <th> OrderAmount </th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let o of orderList">
+        <td> {{o.orderId}} </td>
+        <td> {{o.productId}} </td>
+        <td> {{o.userId}} </td>
+        <td> {{o.orderDate}} </td>
+        <td> {{o.orderAmount}} </td>
+    </tr>
+</table>
+
+<style>
+    .table{
+        border : 2px solid black;
+    }
+    .btn{
+        color: black;
+    }
+</style>
