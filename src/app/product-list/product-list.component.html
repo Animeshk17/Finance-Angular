@@ -1,0 +1,40 @@
+<link rel="stylesheet" type="text/css" href="product-list.component.css">
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/images/emi_logo.png" width="40" height="35" class="d-inline-block align-top" alt="">GetEmiFast
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/dashboard">DashBoard</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+  <div *ngFor="let product of productlist" class="col-lg-3 col-md-6 col-sm-12">
+    <a routerLink="detail/{{product.productId}}" class="btn p-1" style="border: none;">
+        <div class="card shadow border-0 m-3 hover-item" style="height: 280px;">
+        <div class="card-header position-relative overflow-hidden bg-transparent border p-0">
+          <img class="img-fluid " src="{{product.productImageAddress}}" alt="{{product.productName}}">
+        </div>
+        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3 border">
+          <h6 class="text-truncate mb-3">{{product.productName}}</h6>
+          <div class="d-flex justify-content-center">
+            <h6>{{product.productPrice|currency:"INR":"symbol"}}</h6>
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between bg-light border">
+          <!-- <a routerLink="detail/{{product.productId}}" class="btn btn-outline-success text-dark p-1"> -->
+          <!-- <i class="fas fa-eye text-primary mr-1" ></i>View Detail -->
+          <!-- </a> -->
+
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

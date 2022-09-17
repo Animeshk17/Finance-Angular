@@ -1,12 +1,66 @@
-<form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-    <div>
-        <label for="PhoneNumber"> Phone Number </label>
-        <input type="text" name="phoneNumber" ngModel placeholder="Enter Phone Number" class="form-control">
+<!-- <div class="container">
+
+    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <div>
+            <label for="PhoneNumber"> Phone Number </label>
+            <input type="text" name="phoneNumber" ngModel placeholder="Enter Phone Number" class="form-control">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="getOTP()"> Get OTP </button>
+        <div>
+            <label for="OTP"> OTP </label>
+            <input type="text" name="otp" ngModel placeholder="Enter OTP" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary"> Verify </button>
+    </form>
+</div> -->
+
+<link rel="stylesheet" type="text/css" href="otp-verification.component.css">
+
+<a href="https://front.codes/" class="logo" target="_blank">
+    <!-- <img src="https://assets.codepen.io/1462889/fcy.png" alt=""> -->
+</a>
+
+<div class="section">
+    <div class="container">
+        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <!-- <h6 class="mb-0 pb-3"><span>Log In </span></h6> -->
+                        <!-- <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/> -->
+                        <!-- <label for="reg-log"></label> -->
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3" style="color: blanchedAlmond;">OTP Verification </h4>
+                                            <!-- <div class="form-group">
+                                                <label for="userEmail"></label>
+                                                <input type="text" name="UserEmail" ngModel placeholder="Enter " class="form-control" class="form-style" id="logemail" autocomplete="off">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>	 -->
+                                            <div class="form-group mt-2">
+                                                <label for="OTP"></label>
+                                                <input type="text" name="otp" ngModel placeholder="Enter OTP sent to your Registered Number" class="form-control" class ="form-style" id="logpass" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <button type="submit" class="btn mt-4"> Submit </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <button type="button" class="btn btn-primary" (click)="getOTP()"> Get OTP </button>
-    <div>
-        <label for="OTP"> OTP </label>
-        <input type="text" name="otp" ngModel placeholder="Enter OTP" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary"> Verify </button>
-</form>
+</div>

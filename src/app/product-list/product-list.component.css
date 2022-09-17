@@ -1,0 +1,15 @@
+.hoverEffect :hover{
+    box-shadow: 0px 0px 8px 4px;
+}
+
+.hover-item {
+    transition: 0.3s;
+}
+.hover-item:hover {
+transform: translate(0, -10px);
+transform: scale(1.15);
+}
+
+img-fluid{
+    background-attachment:fixed;
+}

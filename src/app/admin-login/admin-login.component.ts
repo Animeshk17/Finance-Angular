@@ -19,7 +19,7 @@ export class AdminLoginComponent implements OnInit {
   onSubmit(userLoginForm:any) {
 
     this. u = userLoginForm.value;
-    if(this.u.password == "adminPassword"){
+    if(this.u.password == "adminPassword" && this.u.userEmail.slice(0,5)=="admin"){
       alert("Logged in as Admin.");
       this.router.navigateByUrl('userLoginDetailsList');
     }else {

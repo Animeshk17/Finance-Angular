@@ -9,14 +9,15 @@ import { Order } from 'src/Models/Order';
 })
 export class ProductService {
 
-  url:string="https://localhost:50124/api/product/";
+  url:string="http://localhost:50124/api/product/";
   constructor(private http:HttpClient) { }
 
   getProducts():Observable<any>{
     return this.http.get<any>(this.url);
   }
+
   getProductbyId(id:number):Observable<any>{
-    return this.http.get<any>(this.url+"all/"+id);
+    return this.http.get<any>(this.url+id);
   }
 
   buyFromCard(e: Card) : Observable<any> {

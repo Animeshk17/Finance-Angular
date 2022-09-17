@@ -15,6 +15,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductDetailPageComponent } from './product-detail-page/product-detail-page.component';
 import { OrdersPageComponent } from './orders-page/orders-page.component';
 import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { RegistrationPaymentComponent } from './registration-payment/registration-payment.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { OtpVerificationComponent } from './otp-verification/otp-verification.co
     HomePageComponent,
     ProductDetailPageComponent,
     OrdersPageComponent,
-    OtpVerificationComponent
+    OtpVerificationComponent,
+    DashboardComponent,
+    ProductListComponent,
+    RegistrationPaymentComponent
   ],
   imports: [
     BrowserModule,

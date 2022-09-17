@@ -30,6 +30,7 @@ export class ProductDetailPageComponent implements OnInit {
   orderNumber : number = 6;
   orderObject : Order = { orderId: this.orderNumber, productId: 100, userId: 300, orderDate: new Date(), orderAmount: 99}
   trnObject : Transaction = {  transactionId : 0, orderId: this.orderNumber, productId: 100, userId: 300, transactionDate: new Date(), transactionAmount: 99}
+  isBalanceSufficient : boolean = true;
   constructor(private _service: ProductService, private _userService: UserDetailsService, private route: Router, private activateroute: ActivatedRoute) {
   }
 
@@ -39,9 +40,10 @@ export class ProductDetailPageComponent implements OnInit {
     this._service.getProductbyId(id).subscribe(data=>
       {
         this.product = data;
+        console.log(data);
         this.images.push(this.product.productImageAddress);
         this.images.push(this.product.productImageAddress);
-
+        console.log(this.images);
       });
   }
   onChange(emiType: string) {
@@ -61,26 +63,57 @@ export class ProductDetailPageComponent implements OnInit {
   
       this.orderObject.orderAmount = this.startingEmiPrice;
       this.orderObject.userId = data.userId;
-      this.orderObject.productId = 1;
+      this.orderObject.productId = this.activateroute.snapshot.params["id"];
       console.log(this.orderObject.userId);
-      alert("button clicked");
       
-      this._userService.buyFromCard(this.cardObject).subscribe(data =>{
-        console.log(data);
-      });
+      this._userService.buyFromCard(this.cardObject).subscribe(
+        (res) =>
+        {
+          if(res.status == 200){
+            alert("Order placed Successfully!");
+            this.route.navigateByUrl("/dashboard")
+            .then(() => {
+              window.location.reload();
+            });
+          }
+        },(err) => {
+          console.log(err);
+          this.isBalanceSufficient = false;
+          alert("Insufficient funds. Order can't be placed.");
+        });
+      
+      // this._userService.buyFromCard(this.cardObject).subscribe(
+      //   (res) => 
+      //   {
+      //     if(res.status == 200){
+      //       alert("Order Placed Successfully");
+      //     }
+      //   },(err) => {
+      //     alert("Insufficient funds. Order can't be placed.")
+      //   }
+      //   )
+      // });
 
       console.log(this.orderObject);
-      this._service.createOrder(this.orderObject).subscribe(data => {
-        console.log(data);
-        this.trnObject.orderId = data.orderId;
-        this.trnObject.userId = data.userId;
-        this.trnObject.productId = 1;
-        this.trnObject.transactionAmount = this.startingEmiPrice;
-        this._service.createTransaction(this.trnObject).subscribe(data => {
-          console.log(data);
-        })
-      });
+      console.log(`is Balance sufficient : ${this.isBalanceSufficient}`);
 
+      if(this.isBalanceSufficient == true){
+
+      
+        this._service.createOrder(this.orderObject).subscribe(data => {
+          console.log(data);
+          this.trnObject.orderId = data.orderId;
+          this.trnObject.userId = data.userId;
+          this.trnObject.productId = this.activateroute.snapshot.params["id"];;
+          this.trnObject.transactionAmount = this.startingEmiPrice;
+          this._service.createTransaction(this.trnObject).subscribe(data => {
+            console.log(data);
+          })
+          
+          this.route.navigateByUrl('/dashboard');
+
+        });
+      } 
       
     });
 

@@ -22,10 +22,12 @@ export class AddUserComponent implements OnInit {
 
   onSubmit(userRegistrationForm:any) {
     this.u = userRegistrationForm.value;
+    localStorage.setItem('registrationCardType',this.u.cardType);
+    console.log(localStorage.getItem('registrationCardType'));
     this._service.addUser(this.u).subscribe(data =>{
 
     });
-    this.router.navigateByUrl("userLoginDetailsList")
+    this.router.navigateByUrl("/payment")
     .then(() => {
       window.location.reload();
     });

@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
       {
         if(res.status == 200){
           alert(`Hello ${c}!`);
-          this.router.navigateByUrl("product")
+          this.router.navigateByUrl("products")
           .then(() => {
             window.location.reload();
           });

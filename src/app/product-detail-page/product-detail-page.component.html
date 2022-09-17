@@ -1,5 +1,26 @@
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/images/emi_logo.png" width="40" height="35" class="d-inline-block align-top" alt="">GetEmiFast
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/dashboard">DashBoard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">Products Available</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="row px-xl-5">
     <div class="col-lg-5 pb-5">
+      <div class="position-relative overflow-hidden bg-transparent border p-0">
+        <img class="img-fluid " src="{{product.productImageAddress}}" alt="{{product.productName}}">
+      </div>
       <ngb-carousel *ngIf="images" class="border" [interval]="4000" [pauseOnHover]="true">
         <ng-template ngbSlide>
           <div class="picsum-img-wrapper">

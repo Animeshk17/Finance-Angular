@@ -1,0 +1,57 @@
+<!-- <div class="container">
+    <h3 class="text-center"> You have opted for {{selectedCardType}} Card. </h3>
+    <h3 class="text-center"> Please pay {{registrationAmount}} to complete registration. </h3>
+
+    <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+        <div class="m-3">
+            <label for="upiId"> Upi Id </label>
+            <input type="text" required name="upiId" ngModel #upiId="ngModel" placeholder="Enter Upi Id" class="form-control">
+            <p *ngIf="upiId.hasError('required')" style="color: red;">Upi Id is required</p>
+
+        </div>
+        <div class="m-3">
+            <label for="upiPIN"> Upi PIN </label>
+            <input type="text" name="pin" ngModel placeholder="Enter Upi PIN" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary m-3"> Submit </button>
+    </form>
+</div> -->
+<link rel="stylesheet" href="registration-payment.component.css">
+
+<div class="container p-0">
+    <div class="card px-4">
+        <p class="h8 py-3">Payment Details</p>
+        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1"> Card Opted </p>
+                        <div class="d-flex flex-column">
+                            <p class="form-control mb-3 pt-2"> {{selectedCardType}} </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">UPI ID</p>
+                        <input type="text" required name="upiId" ngModel #upiId="ngModel" placeholder="Enter Upi Id" class="form-control mb-3">
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Enter UPI Pin </p>
+                        <input type="text" required name="pin" ngModel placeholder="******" class="form-control mb-3">
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mb-3">
+                        <span class="ps-3">Pay ₹{{registrationAmount}}</span>
+                        <span class="fas fa-arrow-right"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

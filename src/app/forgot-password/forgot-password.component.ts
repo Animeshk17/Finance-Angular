@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
         if(res.status == 200){
           alert("Password changed Successfully!");
           console.log(res);
-          this.router.navigateByUrl("userLoginDetailsList")
+          this.router.navigateByUrl("userLogin")
           .then(() => {
             window.location.reload();
           });
@@ -35,7 +35,6 @@ export class ForgotPasswordComponent implements OnInit {
       },(err) => {
         console.log(err);
         alert("There was a problem in resetting your password :(");
-        //this.router.navigateByUrl('userList');
       }
     );
     

@@ -1,0 +1,93 @@
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/images/emi_logo.png" width="40" height="35" class="d-inline-block align-top" alt="">GetEmiFast
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products">Products Available</a>
+        </li>
+        <li class="nav-item" style="margin-left:70vw;">
+            <a class="nav-link" routerLink="/home" (click)="logUserOut()">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid pt-3">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <div class="row px-xl-5">
+    <div class="text-center">
+        <h3>DASHBOARD</h3><hr>
+    </div>
+</div>
+<div class="row px-xl-5">
+    <div class="mx-auto col-lg-4 col-md-6 col-sm-12 ">
+        <div class="card shadow" >
+            <div class="card-body">
+              <h4 class="card-title text-lead bg-light">Card Number : {{cardData.cardId}}</h4>
+              <h5>Name: {{user.name}}</h5>                        
+              <h5>Valid Till: {{cardData.expiryDate | date: 'short'}}</h5>
+              <h5>Card Type: {{cardData.cardType}}</h5>
+              <hr class="m-2">
+              <div ngModel *ngIf="user.is_verified==true; else elseBlock1">
+                <p class="p-3 mb-2 bg-success text-white text-center">ACTIVATED</p>
+              </div>
+                <ng-template #elseBlock1>
+                    <p class="p-3 mb-2 bg-danger text-white text-center">NOT ACTIVATED</p>
+                </ng-template>
+            </div>
+          </div>
+   </div>
+
+   <div class="col-lg-6 col-md-6 col-sm-12 border mr-auto p-4 container">
+    <h5 ngModel *ngIf="cardData.cardType=='Premium'; else elseBlock">Total Credit: 100000</h5>
+    <ng-template #elseBlock>
+        <span style='width: 100px; padding-right: 0; margin-right:0;'><h5 >Total Credit:</h5>
+        </span>: 50000<br/>
+    </ng-template>
+    
+    <h5>Remaining Credit: {{cardData.accountBalance}}</h5>
+</div>
+</div> 
+
+    
+<div class="container border mt-4">
+<div class="row m-3">          
+    <h3 class="text-center  bg-light">Product Purchased</h3>
+    <div class="col-lg-7 ml-5">
+        <h5>Product Name: {{productPurchased.productName }}</h5>
+    </div>
+    <div class="d-flex col-lg-5">
+        <h5>Product Price: {{productPurchased.productPrice }}</h5>
+    </div>
+</div>
+<div class="row m-3">
+    <div class="col-7 ">
+        <h5>Paid: {{amountPaid}}</h5>  
+    </div>
+    <div class="col-7">
+        <h5>Remaining: {{productPurchased.productPrice- amountPaid}}</h5>
+    </div>
+</div>
+</div>
+<div class="container border mt-3">
+<div class="row m-2">
+    <h5 class="bg-light">Recent Transactions - </h5>
+</div>
+<div class="row text-center">
+    <table class="table ">
+        <tr class="table-info">
+        <th>Product</th><th>Date</th><th>Amount Paid</th><th> </th></tr>
+        <tr *ngFor="let transaction of tProducts">
+        <td>{{transaction.productName}}</td>
+        <td>{{transaction.transactionDate | date: 'short'}}</td>
+        <td>{{transaction.transactionAmount}}</td>
+        </tr>
+    </table>
+</div>
+</div>
